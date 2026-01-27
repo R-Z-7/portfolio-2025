@@ -58,7 +58,7 @@ function SceneCheck() {
             if (document.hidden) {
                 gl.setAnimationLoop(null); // Pause
             } else {
-                gl.setAnimationLoop(advance); // Resume
+                gl.setAnimationLoop((timestamp) => advance(timestamp)); // Resume
             }
         };
         document.addEventListener("visibilitychange", handleVisibilityChange);
