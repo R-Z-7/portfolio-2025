@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- THIS LINE LINKS CSS TO HTML -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>Ramees Kallan</title>
+</head><body>
+  <header class="nav">
+    <div class="container inner">
+      <div class="brand">Ramees Kallan</div>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="kicker">IT Support & Infrastructure</p>
+      <h1>Onsite / Deskside IT Support Technician</h1>
+      <p class="sub">
+        Windows & macOS support, Microsoft 365, Active Directory administration, ITSM ticket handling, and end-user issue resolution.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Contact</a>
+        <a class="btn" href="Ramees-Kallan-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/rameezz/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="meta">Leeds, UK • ramees.jobs.uk@gmail.com</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="card">
+        <p class="meta" style="margin-top:0">
+          IT support professional focused on reliable incident ownership, clear stakeholder updates, and consistent documentation.
+        </p>
+        <div class="pills">
+          <span class="pill">ServiceNow / ITSM</span>
+          <span class="pill">Windows & macOS</span>
+          <span class="pill">M365</span>
+          <span class="pill">AD / Access</span>
+          <span class="pill">Networking basics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="grid">
+        <article class="card">
+          <strong>DXC Technology</strong>
+          <div class="meta">Onsite IT Support Technician • 2025 – Present • Leeds</div>
+          <ul class="list">
+            <li>Resolve user incidents across endpoints and peripherals; escalate with full context when needed.</li>
+            <li>Support M365 and account/access tasks aligned to policy and change control.</li>
+            <li>Maintain accurate ticket notes, categorisation, and SLA-driven progression.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <strong>Talrop</strong>
+          <div class="meta">Software Engineer Intern • 2019 – 2022</div>
+          <ul class="list">
+            <li>Built UI components and supported releases with structured troubleshooting.</li>
+            <li>Worked with React/JavaScript and collaborated through version control workflows.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>End User Computing</strong>
+          <p class="meta">Device setup, break-fix, printers/MFPs, AV, endpoint hygiene.</p>
+        </div>
+        <div class="card">
+          <strong>Microsoft & Identity</strong>
+          <p class="meta">M365 support, mailbox/account troubleshooting, AD user/group updates.</p>
+        </div>
+        <div class="card">
+          <strong>ITSM</strong>
+          <p class="meta">Incident triage, prioritisation, comms, knowledge capture.</p>
+        </div>
+        <div class="card">
+          <strong>Networking fundamentals</strong>
+          <p class="meta">Connectivity checks, DHCP/DNS basics, VPN client troubleshooting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="card">
+        <p class="meta" style="margin-top:0">Email: <a href="mailto:ramees.jobs.uk@gmail.com">ramees.jobs.uk@gmail.com</a></p>
+        <p class="meta">LinkedIn: <a href="https://www.linkedin.com/in/rameezz/" target="_blank" rel="noopener">linkedin.com/in/rameezz</a></p>
+        <p class="meta">Location: Leeds, UK</p>
+      </div>
+
+      <div class="footer">
+        © <span id="year"></span> Ramees Kallan
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
