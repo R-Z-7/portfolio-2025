@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     description: 'IT Support Engineer transitioning to Cloud & DevOps. Portfolio of Ramees Kallan.',
 }
 
+import CustomCursor from '@/components/CustomCursor'
+
 export default function RootLayout({
     children,
 }: {
@@ -20,6 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en" className='scroll-smooth'>
             <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans min-h-screen flex flex-col`}>
+                <CustomCursor />
                 <Navbar />
                 <main className="flex-grow flex flex-col relative z-10">
                     {children}

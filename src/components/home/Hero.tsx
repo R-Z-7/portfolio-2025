@@ -5,6 +5,7 @@ import { Link } from "react-scroll";
 import dynamic from "next/dynamic";
 import { ArrowDown, Github, Linkedin, FileText, ChevronRight } from "lucide-react";
 import { profile } from "@/data/profile";
+import Magnetic from "@/components/Magnetic";
 
 const Hero3D = dynamic(() => import("./Hero3D"), {
     ssr: false,
@@ -54,17 +55,19 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col md:flex-row gap-5 justify-center items-center"
                 >
-                    <Link
-                        to="experience"
-                        smooth={true}
-                        offset={-100}
-                        className="group relative px-8 py-4 bg-accent text-primary font-bold rounded-lg overflow-hidden cursor-pointer hover:shadow-glow transition-all"
-                    >
-                        <span className="relative z-10 flex items-center gap-2">
-                            View My Journey <ChevronRight size={20} />
-                        </span>
-                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    </Link>
+                    <Magnetic strength={0.2} springOptions={{ stiffness: 200, damping: 20 }}>
+                        <Link
+                            to="experience"
+                            smooth={true}
+                            offset={-100}
+                            className="group relative px-8 py-4 bg-accent text-primary font-bold rounded-lg overflow-hidden cursor-pointer hover:shadow-glow transition-all inline-block"
+                        >
+                            <span className="relative z-10 flex items-center gap-2">
+                                View My Journey <ChevronRight size={20} />
+                            </span>
+                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                        </Link>
+                    </Magnetic>
 
                     <div className="flex gap-4">
                         <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-white/5 transition-colors text-slate-300 hover:text-white">
