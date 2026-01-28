@@ -20,6 +20,21 @@ Since `npm` was not available during initialization, you need to verify your Nod
 npm install
 ```
 
+### Environment Variables (Visitor Counter)
+
+To enable the visitor counter, set up [Upstash Redis](https://upstash.com) (free tier available):
+
+1. Create a Redis database at [console.upstash.com](https://console.upstash.com).
+2. Copy your REST URL and token.
+3. Create a `.env.local` file:
+
+```bash
+UPSTASH_REDIS_REST_URL=your_url_here
+UPSTASH_REDIS_REST_TOKEN=your_token_here
+```
+
+4. Add the same variables to your Vercel project settings.
+
 ### Development
 
 Run the development server:
