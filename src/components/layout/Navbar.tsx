@@ -3,8 +3,8 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
-import { Menu, X, Download } from "lucide-react";
-import { profile } from "@/data/profile";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -40,12 +40,12 @@ export default function Navbar() {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                        ? "py-4 bg-primary/70 backdrop-blur-xl border-b border-glass-border shadow-lg"
-                        : "py-6 bg-transparent"
+                    ? "py-4 bg-background/70 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/5 dark:shadow-black/20"
+                    : "py-6 bg-transparent"
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                    <Link to="hero" smooth={true} className="text-2xl font-bold font-display cursor-pointer tracking-wider text-white">
+                    <Link to="hero" smooth={true} className="text-2xl font-bold font-display cursor-pointer tracking-wider text-foreground">
                         RK<span className="text-accent">.</span>
                     </Link>
 
@@ -58,26 +58,33 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-100}
                                 duration={500}
-                                className="text-sm font-medium text-slate-300 hover:text-white cursor-pointer transition-colors relative group"
+                                className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors relative group"
                             >
                                 {link.name}
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent transition-all group-hover:w-full" />
                             </Link>
                         ))}
 
+                        <div className="h-6 w-px bg-border/50 mx-2" />
+
+                        <ThemeToggle />
+
                         <Link
                             to="contact"
                             smooth={true}
-                            className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white hover:bg-accent hover:border-accent hover:text-primary transition-all duration-300 cursor-pointer"
+                            className="px-6 py-2 bg-primary text-primary-foreground border border-primary rounded-full text-sm font-medium hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 cursor-pointer shadow-sm"
                         >
                             Contact Me
                         </Link>
                     </div>
 
                     {/* Mobile Toggle */}
-                    <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
+                    <div className="flex items-center gap-4 md:hidden">
+                        <ThemeToggle />
+                        <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
+                            {isOpen ? <X size={28} /> : <Menu size={28} />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu */}
@@ -85,7 +92,7 @@ export default function Navbar() {
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-2xl border-b border-white/10 p-6 flex flex-col gap-6 md:hidden shadow-2xl"
+                        className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-border p-6 flex flex-col gap-6 md:hidden shadow-2xl"
                     >
                         {links.map((link) => (
                             <Link
@@ -94,7 +101,7 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-100}
                                 onClick={() => setIsOpen(false)}
-                                className="text-lg font-medium text-slate-300 hover:text-accent"
+                                className="text-lg font-medium text-muted-foreground hover:text-foreground"
                             >
                                 {link.name}
                             </Link>
