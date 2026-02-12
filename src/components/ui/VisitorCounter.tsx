@@ -19,11 +19,22 @@ export default function VisitorCounter() {
                 const hasVisited = sessionStorage.getItem(SESSION_KEY);
                 const method = hasVisited ? 'GET' : 'POST';
 
+                console.log('[VisitorCounter] method:', method, 'hasVisited:', hasVisited);
+
                 const response = await fetch('/api/visitors', { method });
 
-                if (!response.ok) throw new Error('Failed to fetch count');
+                if (!response.ok) {
+                    console.error('[VisitorCounter] Response not ok:', response.status, response.statusText);
+                    throw new Error('Failed to fetch count');
+                }
 
                 const data = await response.json();
+                console.log('[VisitorCounter] Data received:', data);
+
+                if (data.fallback) {
+                    console.warn('[VisitorCounter] Using fallback data (Redis not connected?)');
+                }
+
                 setCount(data.count);
 
                 // Mark as visited in this session (only if POST was successful)
