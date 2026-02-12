@@ -3,8 +3,8 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
-import { Menu, X, Download } from "lucide-react";
-import { profile } from "@/data/profile";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -39,18 +39,15 @@ export default function Navbar() {
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                        ? "py-4 bg-primary/70 backdrop-blur-xl border-b border-glass-border shadow-lg"
-                        : "py-6 bg-transparent"
-                    }`}
+                className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto overflow-visible"
             >
-                <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                    <Link to="hero" smooth={true} className="text-2xl font-bold font-display cursor-pointer tracking-wider text-white">
-                        RK<span className="text-accent">.</span>
+                <div className="bg-background/70 backdrop-blur-lg border border-border/40 rounded-full px-6 py-3 shadow-lg shadow-black/5 dark:shadow-black/20 flex items-center justify-between md:justify-center md:gap-8">
+                    <Link to="hero" smooth={true} className="text-xl font-bold font-display cursor-pointer tracking-wider text-foreground mr-4">
+                        RK<span className="text-primary">.</span>
                     </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-6">
                         {links.map((link) => (
                             <Link
                                 key={link.name}
@@ -58,43 +55,51 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-100}
                                 duration={500}
-                                className="text-sm font-medium text-slate-300 hover:text-white cursor-pointer transition-colors relative group"
+                                className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors relative group"
                             >
                                 {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full" />
                             </Link>
                         ))}
+
+                        <div className="h-4 w-px bg-border/50 mx-2" />
+
+                        <ThemeToggle />
 
                         <Link
                             to="contact"
                             smooth={true}
-                            className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium text-white hover:bg-accent hover:border-accent hover:text-primary transition-all duration-300 cursor-pointer"
+                            className="px-5 py-2 bg-primary text-primary-foreground border border-primary rounded-full text-xs font-bold hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 cursor-pointer shadow-sm ml-2"
                         >
-                            Contact Me
+                            Let's Talk
                         </Link>
                     </div>
 
                     {/* Mobile Toggle */}
-                    <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
+                    <div className="flex items-center gap-4 md:hidden">
+                        <ThemeToggle />
+                        <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
 
-                {/* Mobile Menu */}
+                {/* Mobile Menu Dropdown */}
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-2xl border-b border-white/10 p-6 flex flex-col gap-6 md:hidden shadow-2xl"
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                        className="absolute top-full left-0 right-0 mt-4 bg-background/90 backdrop-blur-xl border border-border/50 rounded-2xl p-4 flex flex-col gap-4 shadow-2xl origin-top"
                     >
                         {links.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.to}
                                 smooth={true}
-                                offset={-100}
+                                offset={-80}
                                 onClick={() => setIsOpen(false)}
-                                className="text-lg font-medium text-slate-300 hover:text-accent"
+                                className="text-base font-medium text-muted-foreground hover:text-foreground px-4 py-2 hover:bg-accent/10 rounded-lg transition-colors"
                             >
                                 {link.name}
                             </Link>
@@ -103,7 +108,7 @@ export default function Navbar() {
                             to="contact"
                             smooth={true}
                             onClick={() => setIsOpen(false)}
-                            className="text-lg font-medium text-accent"
+                            className="text-base font-bold text-center bg-primary text-primary-foreground py-3 rounded-xl shadow-sm mt-2"
                         >
                             Contact Me
                         </Link>

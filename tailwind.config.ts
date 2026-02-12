@@ -6,15 +6,51 @@ const config: Config = {
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
-                primary: "#0a0f1c", // Deep Luxury Navy
-                secondary: "#111827",
-                accent: "#38bdf8", // Sky 400
-                "accent-dark": "#0ea5e9",
-                "glass-border": "rgba(255, 255, 255, 0.08)",
-                "glass-bg": "rgba(10, 15, 28, 0.6)",
+                border: "hsl(var(--border))",
+                input: "hsl(var(--input))",
+                ring: "hsl(var(--ring))",
+                background: "hsl(var(--background))",
+                foreground: "hsl(var(--foreground))",
+                primary: {
+                    DEFAULT: "hsl(var(--primary))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                secondary: {
+                    DEFAULT: "hsl(var(--secondary))",
+                    foreground: "hsl(var(--secondary-foreground))",
+                },
+                destructive: {
+                    DEFAULT: "hsl(var(--destructive))",
+                    foreground: "hsl(var(--destructive-foreground))",
+                },
+                muted: {
+                    DEFAULT: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted-foreground))",
+                },
+                accent: {
+                    DEFAULT: "hsl(var(--accent))",
+                    foreground: "hsl(var(--accent-foreground))",
+                },
+                popover: {
+                    DEFAULT: "hsl(var(--popover))",
+                    foreground: "hsl(var(--popover-foreground))",
+                },
+                card: {
+                    DEFAULT: "hsl(var(--card))",
+                    foreground: "hsl(var(--card-foreground))",
+                },
+                // Retaining these with new mappings or fallbacks
+                "glass-border": "hsl(var(--border) / 0.3)", // Using opacity modifier
+                "glass-bg": "hsl(var(--background) / 0.6)",
+            },
+            borderRadius: {
+                lg: "var(--radius)",
+                md: "calc(var(--radius) - 2px)",
+                sm: "calc(var(--radius) - 4px)",
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "sans-serif"],
@@ -38,12 +74,11 @@ const config: Config = {
                 },
             },
             boxShadow: {
-                "glow": "0 0 20px rgba(56, 189, 248, 0.15)",
-                "glow-lg": "0 0 40px rgba(56, 189, 248, 0.2)",
+                "glow": "0 0 20px hsl(var(--accent) / 0.15)",
+                "glow-lg": "0 0 40px hsl(var(--accent) / 0.2)",
             }
         },
     },
     plugins: [],
-    darkMode: "class",
 };
 export default config;
