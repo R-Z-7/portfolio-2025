@@ -76,15 +76,7 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-4 group">
-                                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                                    <MapPin size={20} />
-                                </div>
-                                <div>
-                                    <p className="text-xs text-slate-500 uppercase tracking-wider font-bold">Location</p>
-                                    <p className="text-white text-lg">{profile.personal.location}</p>
-                                </div>
-                            </div>
+
 
 
                         </div>

@@ -1,25 +1,23 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-const VISITED_KEY = 'portfolio_visited_date';
-
-function getToday(): string {
-    return new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-}
+const SESSION_KEY = 'rk_visitor_incremented';
 
 export default function VisitorCounter() {
     const [count, setCount] = useState<number | null>(null);
     const [loading, setLoading] = useState(true);
+    const hasFetched = useRef(false);
 
     useEffect(() => {
+        if (hasFetched.current) return;
+        hasFetched.current = true;
+
         const fetchCount = async () => {
             try {
-                const today = getToday();
-                const lastVisit = localStorage.getItem(VISITED_KEY);
-
-                // Determine method: POST if first visit today, GET otherwise
-                const method = lastVisit === today ? 'GET' : 'POST';
+                // Check if already visited in this session
+                const hasVisited = sessionStorage.getItem(SESSION_KEY);
+                const method = hasVisited ? 'GET' : 'POST';
 
                 const response = await fetch('/api/visitors', { method });
 
@@ -28,9 +26,9 @@ export default function VisitorCounter() {
                 const data = await response.json();
                 setCount(data.count);
 
-                // Mark as visited today (only if POST was successful)
+                // Mark as visited in this session (only if POST was successful)
                 if (method === 'POST') {
-                    localStorage.setItem(VISITED_KEY, today);
+                    sessionStorage.setItem(SESSION_KEY, 'true');
                 }
             } catch (err) {
                 console.error('Visitor counter error:', err);
