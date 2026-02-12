@@ -19,8 +19,6 @@ export default function VisitorCounter() {
                 const hasVisited = sessionStorage.getItem(SESSION_KEY);
                 const method = hasVisited ? 'GET' : 'POST';
 
-                console.log('[VisitorCounter] method:', method, 'hasVisited:', hasVisited);
-
                 const response = await fetch('/api/visitors', { method });
 
                 if (!response.ok) {
@@ -29,11 +27,6 @@ export default function VisitorCounter() {
                 }
 
                 const data = await response.json();
-                console.log('[VisitorCounter] Data received:', data);
-
-                if (data.fallback) {
-                    console.warn('[VisitorCounter] Using fallback data (Redis not connected?)');
-                }
 
                 setCount(data.count);
 
