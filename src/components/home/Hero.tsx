@@ -72,13 +72,13 @@ export default function Hero() {
                     </Magnetic>
 
                     <div className="flex gap-4">
-                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-accent/10 transition-colors text-muted-foreground hover:text-foreground">
+                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-secondary transition-colors text-foreground hover:text-primary">
                             <Github size={20} />
                         </a>
-                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-accent/10 transition-colors text-muted-foreground hover:text-foreground">
+                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-secondary transition-colors text-foreground hover:text-primary">
                             <Linkedin size={20} />
                         </a>
-                        <a href={profile.personal.resumeUrl} className="px-6 py-4 glass-panel rounded-lg hover:bg-accent/10 transition-colors text-muted-foreground hover:text-foreground flex items-center gap-2 font-medium">
+                        <a href={profile.personal.resumeUrl} className="px-6 py-4 glass-panel rounded-lg hover:bg-secondary transition-colors text-foreground hover:text-primary flex items-center gap-2 font-medium">
                             <FileText size={20} /> Download CV
                         </a>
                     </div>
