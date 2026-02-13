@@ -27,7 +27,7 @@ export default function About() {
                         <h4 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4">Focus Areas</h4>
                         <div className="flex flex-wrap gap-2">
                             {profile.learning.map(item => (
-                                <span key={item} className="px-4 py-2 bg-secondary text-secondary-foreground border border-border rounded-lg text-sm font-medium hover:bg-secondary/80 transition-colors">
+                                <span key={item} className="px-3 py-1 bg-secondary/50 text-secondary-foreground border border-border/50 rounded-md text-sm font-medium hover:bg-secondary hover:border-border transition-all cursor-default">
                                     {item}
                                 </span>
                             ))}

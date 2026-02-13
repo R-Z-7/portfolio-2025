@@ -108,17 +108,17 @@ export default function Contact() {
                                 >
                                     <div className="grid grid-cols-2 gap-5">
                                         <div className="space-y-2">
-                                            <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase">Name</label>
-                                            <input required name="name" id="name" type="text" className="w-full bg-background border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="John Doe" />
+                                            <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Name</label>
+                                            <input required name="name" id="name" type="text" className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="John Doe" />
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="email" className="text-xs font-bold text-muted-foreground uppercase">Email</label>
-                                            <input required name="email" id="email" type="email" className="w-full bg-background border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="john@example.com" />
+                                            <label htmlFor="email" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Email</label>
+                                            <input required name="email" id="email" type="email" className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="john@example.com" />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="message" className="text-xs font-bold text-muted-foreground uppercase">Message</label>
-                                        <textarea required name="message" id="message" rows={4} className="w-full bg-background border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Hi Ramees..." />
+                                        <label htmlFor="message" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Message</label>
+                                        <textarea required name="message" id="message" rows={4} className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/50 focus:bg-background transition-all resize-none" placeholder="Hi Ramees..." />
                                     </div>
 
                                     {error && (
@@ -130,7 +130,7 @@ export default function Contact() {
 
                                     <button
                                         disabled={isSubmitting}
-                                        className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-lg hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                                        className="w-full btn-primary justify-center mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {isSubmitting ? (
                                             <>Sending... <Loader2 className="animate-spin" size={18} /></>

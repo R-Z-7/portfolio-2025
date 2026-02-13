@@ -39,15 +39,15 @@ export default function Navbar() {
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto overflow-visible"
+                className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto max-w-5xl"
             >
-                <div className="bg-background/70 backdrop-blur-lg border border-border/40 rounded-full px-6 py-3 shadow-lg shadow-black/5 dark:shadow-black/20 flex items-center justify-between md:justify-center md:gap-8">
-                    <Link to="hero" smooth={true} className="text-xl font-bold font-display cursor-pointer tracking-wider text-foreground mr-4">
+                <div className="bg-background/80 backdrop-blur-xl border border-border/40 rounded-full px-5 py-2.5 shadow-lg shadow-black/5 dark:shadow-black/20 flex items-center justify-between md:justify-center gap-4 md:gap-8">
+                    <Link to="hero" smooth={true} className="text-xl font-bold font-display cursor-pointer tracking-wider text-foreground hover:opacity-80 transition-opacity pl-2">
                         RK<span className="text-primary">.</span>
                     </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-6">
+                    <div className="hidden md:flex items-center gap-1">
                         {links.map((link) => (
                             <Link
                                 key={link.name}
@@ -55,10 +55,9 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-100}
                                 duration={500}
-                                className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors relative group"
+                                className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-4 py-2 rounded-full cursor-pointer transition-all relative group"
                             >
                                 {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full" />
                             </Link>
                         ))}
 
@@ -69,28 +68,28 @@ export default function Navbar() {
                         <Link
                             to="contact"
                             smooth={true}
-                            className="px-5 py-2 bg-primary text-primary-foreground border border-primary rounded-full text-xs font-bold hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 cursor-pointer shadow-sm ml-2"
+                            className="ml-2 px-5 py-2 bg-primary text-primary-foreground rounded-full text-xs font-bold hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                         >
                             Let's Talk
                         </Link>
                     </div>
 
                     {/* Mobile Toggle */}
-                    <div className="flex items-center gap-4 md:hidden">
+                    <div className="flex items-center gap-3 md:hidden pr-1">
                         <ThemeToggle />
-                        <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        <button className="text-foreground p-1 hover:bg-muted/50 rounded-full transition-colors" onClick={() => setIsOpen(!isOpen)}>
+                            {isOpen ? <X size={20} /> : <Menu size={20} />}
                         </button>
                     </div>
                 </div>
 
-                {/* Mobile Menu Dropdown */}
+                {/* Mobile Menu Dropdown - Detached & Floating */}
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        initial={{ opacity: 0, scale: 0.95, y: -20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                        className="absolute top-full left-0 right-0 mt-4 bg-background/90 backdrop-blur-xl border border-border/50 rounded-2xl p-4 flex flex-col gap-4 shadow-2xl origin-top"
+                        exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                        className="absolute top-full left-0 right-0 mt-3 bg-card/90 backdrop-blur-xl border border-border/50 rounded-3xl p-4 flex flex-col gap-2 shadow-2xl origin-top"
                     >
                         {links.map((link) => (
                             <Link
@@ -99,16 +98,18 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-80}
                                 onClick={() => setIsOpen(false)}
-                                className="text-base font-medium text-muted-foreground hover:text-foreground px-4 py-2 hover:bg-accent/10 rounded-lg transition-colors"
+                                className="text-base font-medium text-foreground/80 hover:text-foreground px-4 py-3 hover:bg-muted/50 rounded-xl transition-all flex items-center justify-between group"
                             >
                                 {link.name}
+                                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                             </Link>
                         ))}
+                        <div className="h-px bg-border/50 my-2" />
                         <Link
                             to="contact"
                             smooth={true}
                             onClick={() => setIsOpen(false)}
-                            className="text-base font-bold text-center bg-primary text-primary-foreground py-3 rounded-xl shadow-sm mt-2"
+                            className="text-base font-bold text-center bg-primary text-primary-foreground py-3.5 rounded-xl shadow-lg shadow-primary/20"
                         >
                             Contact Me
                         </Link>

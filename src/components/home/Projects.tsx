@@ -23,20 +23,20 @@ export default function Projects() {
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div>
                     <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Portfolio</h2>
-                    <h3 className="text-3xl md:text-5xl font-bold text-foreground">Featured Projects</h3>
+                    <h3 className="text-3xl md:text-5xl font-bold text-foreground font-display">Featured Projects</h3>
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap gap-2 p-1 bg-accent/5 rounded-lg border border-border">
+                <div className="flex flex-wrap gap-2 p-1.5 bg-muted/50 rounded-full border border-border/50 backdrop-blur-sm">
                     {categories.map(cat => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={cn(
-                                "px-4 py-2 rounded-md text-sm font-medium transition-all",
+                                "px-5 py-2 rounded-full text-sm font-medium transition-all duration-300",
                                 activeCategory === cat
-                                    ? "bg-accent text-accent-foreground shadow-lg"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+                                    ? "bg-background text-foreground shadow-sm"
+                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                             )}
                         >
                             {cat}

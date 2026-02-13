@@ -62,24 +62,21 @@ export default function Hero() {
                             to="experience"
                             smooth={true}
                             offset={-100}
-                            className="group relative px-8 py-4 bg-primary text-primary-foreground font-bold rounded-lg overflow-hidden cursor-pointer hover:shadow-glow transition-all inline-block"
+                            className="btn-primary"
                         >
-                            <span className="relative z-10 flex items-center gap-2">
-                                View My Journey <ChevronRight size={20} />
-                            </span>
-                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                            View My Journey <ChevronRight size={18} />
                         </Link>
                     </Magnetic>
 
                     <div className="flex gap-4">
-                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-secondary transition-colors text-foreground hover:text-primary">
+                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer" className="p-3 bg-secondary hover:bg-secondary/80 rounded-full text-foreground transition-all hover:-translate-y-1 hover:shadow-md border border-border/50">
                             <Github size={20} />
                         </a>
-                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer" className="p-4 glass-panel rounded-lg hover:bg-secondary transition-colors text-foreground hover:text-primary">
+                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer" className="p-3 bg-secondary hover:bg-secondary/80 rounded-full text-foreground transition-all hover:-translate-y-1 hover:shadow-md border border-border/50">
                             <Linkedin size={20} />
                         </a>
-                        <a href={profile.personal.resumeUrl} className="px-6 py-4 glass-panel rounded-lg hover:bg-secondary transition-colors text-foreground hover:text-primary flex items-center gap-2 font-medium">
-                            <FileText size={20} /> Download CV
+                        <a href={profile.personal.resumeUrl} className="btn-secondary">
+                            <FileText size={18} /> Download CV
                         </a>
                     </div>
                 </motion.div>
