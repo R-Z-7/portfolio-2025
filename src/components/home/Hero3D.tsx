@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 // Use a simple, performance-friendly particle system
 function Particles(props: any) {
     const ref = useRef<THREE.Points>(null!);
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -49,17 +49,7 @@ function Particles(props: any) {
 
     if (!mounted) return null;
 
-    const isDark = theme === 'dark' || theme === 'system'; // Default to dark for system if unknown/SSR
-    // Actually next-themes handles system, so resolvedTheme is better, usually available from useTheme
-    // But theme might be 'system'. We can default to blending ADD for dark aesthetics.
-
-    // Better retrieval of resolved theme
-    // const { resolvedTheme } = useTheme(); 
-    // However, inside this component we should prop drill or just use hook.
-
-    // Assuming 'theme' is enough or fallback to dark style.
-    // For light mode, we need NormalBlending and a dark color.
-    const isLight = theme === 'light';
+    const isLight = resolvedTheme === 'light';
 
     return (
         <group rotation={[0, 0, Math.PI / 4]}>
