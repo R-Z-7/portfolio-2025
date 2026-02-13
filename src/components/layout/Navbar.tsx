@@ -43,7 +43,7 @@ export default function Navbar() {
                 animate={{ y: 0 }}
                 className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto max-w-5xl"
             >
-                <div className="bg-background/80 backdrop-blur-xl border border-border/40 rounded-full px-5 py-2.5 shadow-lg shadow-black/5 dark:shadow-black/20 flex items-center justify-between md:justify-center gap-4 md:gap-8">
+                <div className="bg-background/80 backdrop-blur-xl border border-border/40 rounded-full px-5 py-2.5 shadow-lg shadow-black/5 dark:shadow-black/20 flex items-center justify-between md:justify-center gap-4 md:gap-8 transition-all duration-300">
                     <Link to="hero" smooth={true} className="text-xl font-bold font-display cursor-pointer tracking-wider text-foreground hover:opacity-80 transition-opacity pl-2">
                         RK<span className="text-primary">.</span>
                     </Link>

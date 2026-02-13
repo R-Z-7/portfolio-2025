@@ -16,7 +16,7 @@
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 5% 92%;
+    --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
 
     --muted: 240 4.8% 95.9%;
@@ -30,9 +30,9 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --ring: 240 5.9% 10%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -86,7 +86,36 @@
   }
 
   h1 {
-    @apply text-4xl md:text-6xl lg:text-7xl font-bold;
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold tight-spacing;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl font-bold;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .tight-spacing {
+    letter-spacing: -0.02em;
+  }
+
+  .glass-panel {
+    @apply bg-card/70 backdrop-blur-md border border-border/50 shadow-sm transition-all duration-300;
+  }
+
+  .premium-shadow {
+    box-shadow: 0 0 0 1px hsl(var(--border) / 0.4),
+      0 4px 20px -2px hsl(var(--primary) / 0.05);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-muted-foreground to-foreground;
+    background-size: 200% auto;
+    animation: textShine 8s ease-in-out infinite alternate;
   }
 }
 
@@ -98,12 +127,12 @@
   button,
   [role="button"] {
     cursor: auto;
-    /* Should ideally be 'none' if custom cursor is active, but fallback to auto to avoid 'no cursor' issue if JS fails */
     cursor: none;
+    /* Custom cursor */
   }
 }
 
-/* Custom Scrollbar - Premium Slim */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -113,22 +142,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-border rounded-full hover:bg-muted-foreground/40 transition-colors;
-}
-
-.glass-panel {
-  @apply bg-card/60 backdrop-blur-md border border-border/50 shadow-sm transition-all duration-300;
-}
-
-/* Premium Hover Card Effect */
-.card-hover {
-  @apply hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300;
-}
-
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-muted-foreground to-foreground;
-  background-size: 200% auto;
-  animation: textShine 5s ease-in-out infinite alternate;
+  @apply bg-border/60 rounded-full hover:bg-muted-foreground/60 transition-colors;
 }
 
 @keyframes textShine {
@@ -139,13 +153,4 @@
   100% {
     background-position: 100% 50%;
   }
-}
-
-/* Utilities for agency feel */
-.container-width {
-  @apply max-w-7xl mx-auto px-6 md:px-12;
-}
-
-.section-padding {
-  @apply py-24 md:py-32;
 }
