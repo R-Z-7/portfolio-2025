@@ -49,7 +49,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div>
                         <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Get in Touch</h2>
-                        <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Let's Work Together</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Let&apos;s Work Together</h3>
                         <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
                             I am currently open to opportunities in <strong className="text-foreground">Cloud & DevOps</strong>.
                             Whether you have a question about my experience or want to discuss a potential role,
@@ -91,7 +91,7 @@ export default function Contact() {
                                         <CheckCircle className="w-10 h-10 text-green-500" />
                                     </div>
                                     <h4 className="text-2xl font-bold text-foreground mb-2">Message Sent!</h4>
-                                    <p className="text-muted-foreground">Thanks for reaching out. I'll get back to you soon.</p>
+                                    <p className="text-muted-foreground">Thanks for reaching out. I&apos;ll get back to you soon.</p>
                                     <Button
                                         variant="link"
                                         onClick={() => setIsSubmitted(false)}
@@ -111,16 +111,37 @@ export default function Contact() {
                                     <div className="grid grid-cols-2 gap-5">
                                         <div className="space-y-2">
                                             <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Name</label>
-                                            <input required name="name" id="name" type="text" className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="John Doe" />
+                                            <input
+                                                required
+                                                name="name"
+                                                id="name"
+                                                type="text"
+                                                className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-background transition-all"
+                                                placeholder="John Doe"
+                                            />
                                         </div>
                                         <div className="space-y-2">
                                             <label htmlFor="email" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Email</label>
-                                            <input required name="email" id="email" type="email" className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="john@example.com" />
+                                            <input
+                                                required
+                                                name="email"
+                                                id="email"
+                                                type="email"
+                                                className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-background transition-all"
+                                                placeholder="john@example.com"
+                                            />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
                                         <label htmlFor="message" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Message</label>
-                                        <textarea required name="message" id="message" rows={4} className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/50 focus:bg-background transition-all resize-none" placeholder="Hi Ramees..." />
+                                        <textarea
+                                            required
+                                            name="message"
+                                            id="message"
+                                            rows={4}
+                                            className="w-full bg-muted/50 border border-border/50 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-background transition-all resize-none"
+                                            placeholder="Hi Ramees..."
+                                        />
                                     </div>
 
                                     {error && (
