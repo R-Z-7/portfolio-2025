@@ -46,9 +46,9 @@ export default function VisitorCounter() {
     }, []);
 
     return (
-        <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs">
-            <span className="text-slate-500">Visitors:</span>
-            <span className="font-mono text-accent/80">
+        <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/5 border border-accent/10 text-xs">
+            <span className="text-muted-foreground">Visitors:</span>
+            <span className="font-mono text-primary font-bold">
                 {loading ? (
                     <span className="animate-pulse">...</span>
                 ) : (

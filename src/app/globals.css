@@ -4,127 +4,148 @@
 
 @layer base {
   :root {
-    /* Light Mode - Clean, readable, teal accents */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 5% 96%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 195 18% 40%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 5% 92%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 183 32% 40%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 195 18% 40%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark Mode - User's Palette 
-       #000000 ~ 0 0% 0%
-       #2a272a ~ 280 4% 16% 
-       #4b4a54 ~ 245 6% 31%
-       #677381 ~ 212 11% 45%
-       #82a0aa ~ 195 18% 59%
-       #a3cfcd ~ 183 32% 73%
-    */
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 280 4% 16%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 280 4% 16%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary Accent #82a0aa */
-    --primary: 195 18% 59%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
 
-    /* Secondary #4b4a54 */
-    --secondary: 245 6% 31%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    /* Muted #677381 */
-    --muted: 245 6% 31%;
-    --muted-foreground: 212 11% 45%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    /* Highlight #a3cfcd */
-    --accent: 183 32% 73%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 245 6% 31%;
-    --input: 245 6% 31%;
-    --ring: 183 32% 73%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/20 selection:text-primary;
+    background-image: radial-gradient(circle at 50% 0%, hsl(var(--primary)/0.03) 0%, transparent 60%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold;
   }
 }
 
 @media (pointer: fine) {
+
   html,
   body,
   a,
   button,
   [role="button"] {
-    cursor: auto; /* Resetting forced none cursor unless user specifically wants it, assuming 'cursor: none' was for custom cursor. 
-                     If custom cursor is present, we keep 'none' but ensure it's intentional. 
-                     The user prompt didn't say to remove custom cursor, but 'cursor: none' globally can be annoying if custom cursor fails.
-                     I will KEEP the custom cursor logic if it was there, effectively re-adding it below. */
-     cursor: none;
+    cursor: auto;
+    /* Should ideally be 'none' if custom cursor is active, but fallback to auto to avoid 'no cursor' issue if JS fails */
+    cursor: none;
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Premium Slim */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors;
+  @apply bg-border rounded-full hover:bg-muted-foreground/40 transition-colors;
 }
 
 .glass-panel {
-  @apply bg-background/60 backdrop-blur-xl border border-border/50 shadow-lg relative overflow-hidden;
+  @apply bg-card/60 backdrop-blur-md border border-border/50 shadow-sm transition-all duration-300;
+}
+
+/* Premium Hover Card Effect */
+.card-hover {
+  @apply hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-muted-foreground to-foreground;
   background-size: 200% auto;
-  animation: textShine 4s linear infinite;
+  animation: textShine 5s ease-in-out infinite alternate;
 }
 
 @keyframes textShine {
-  to {
-    background-position: 200% center;
+  0% {
+    background-position: 0% 50%;
   }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Utilities for agency feel */
+.container-width {
+  @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.section-padding {
+  @apply py-24 md:py-32;
 }

@@ -51,20 +51,20 @@ export default function CustomCursor() {
     // We can reset hover state on some conditions or just let mouseover handle it.
     // However, mouseover bubbles, so moving from one interactive el to another triggers it correctly.
     // Moving to non-interactive needs to clear it.
-    
+
     // Improved hover detection: check on every mouse move or use event delegation more carefully.
     // A simpler approach for globally tracking hover state:
     const checkHover = (e: MouseEvent) => {
-       const target = e.target as HTMLElement;
-       const isInteractive =
+      const target = e.target as HTMLElement;
+      const isInteractive =
         target.closest('a') ||
         target.closest('button') ||
         target.closest('[role="button"]') ||
         target.closest('[data-cursor="hover"]');
-        
-       setIsHovered(!!isInteractive);
+
+      setIsHovered(!!isInteractive);
     }
-    
+
     window.addEventListener('mousemove', checkHover);
 
     return () => {
@@ -80,7 +80,7 @@ export default function CustomCursor() {
     <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
       {/* Dot */}
       <motion.div
-        className="absolute w-1.5 h-1.5 bg-white rounded-full mix-blend-difference"
+        className="absolute w-1.5 h-1.5 bg-foreground rounded-full"
         style={{
           x: mouseX,
           y: mouseY,
@@ -89,10 +89,10 @@ export default function CustomCursor() {
         }}
         transition={{ type: 'tween', ease: 'linear', duration: 0 }}
       />
-      
+
       {/* Ring */}
       <motion.div
-        className="absolute rounded-full border border-white/50 mix-blend-difference"
+        className="absolute rounded-full border border-foreground/50"
         style={{
           x: ringX,
           y: ringY,
@@ -103,13 +103,13 @@ export default function CustomCursor() {
           width: isHovered ? 54 : 34,
           height: isHovered ? 54 : 34,
           opacity: isHovered ? 1 : 0.6,
-          backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+          backgroundColor: isHovered ? 'hsl(var(--foreground) / 0.1)' : 'transparent',
         }}
         transition={{
-            type: "spring",
-            stiffness: 150,
-            damping: 20,
-            mass: 0.5
+          type: "spring",
+          stiffness: 150,
+          damping: 20,
+          mass: 0.5
         }}
       />
     </div>

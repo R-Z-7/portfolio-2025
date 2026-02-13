@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 }
 
 import CustomCursor from '@/components/CustomCursor'
+import ScrollProgress from '@/components/ui/ScrollProgress'
 
 export default function RootLayout({
     children,
@@ -29,6 +30,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <ScrollProgress />
                     <CustomCursor />
                     <Navbar />
                     <main className="flex-grow flex flex-col relative z-10">
