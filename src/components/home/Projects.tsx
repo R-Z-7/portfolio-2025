@@ -37,9 +37,7 @@ export default function Projects() {
                             size="sm"
                             className={cn(
                                 "rounded-full transition-all duration-300",
-                                activeCategory === cat
-                                    ? "bg-background text-foreground shadow-sm hover:bg-background"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                activeCategory !== cat && "text-muted-foreground hover:bg-muted/50"
                             )}
                         >
                             {cat}

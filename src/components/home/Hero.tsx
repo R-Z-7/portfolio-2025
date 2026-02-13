@@ -9,7 +9,7 @@ import Magnetic from "@/components/Magnetic";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const Hero3D = dynamic(() => import("./Hero3D"), {
+const Hero3D = dynamic(() => import("@/components/home/Hero3D"), {
     ssr: false,
     loading: () => <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
 });
@@ -72,16 +72,16 @@ export default function Hero() {
                     </Magnetic>
 
                     <div className="flex gap-4">
-                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer">
-                            <Button variant="secondary" size="icon" className="rounded-full shadow-md border border-border/50 hover:-translate-y-1 hover:shadow-lg transition-all">
-                                <Github size={20} />
-                            </Button>
-                        </a>
-                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer">
-                            <Button variant="secondary" size="icon" className="rounded-full shadow-md border border-border/50 hover:-translate-y-1 hover:shadow-lg transition-all">
-                                <Linkedin size={20} />
-                            </Button>
-                        </a>
+                        {[
+                            { href: profile.personal.githubUrl, icon: Github, label: "GitHub" },
+                            { href: profile.personal.linkedinUrl, icon: Linkedin, label: "LinkedIn" }
+                        ].map(({ href, icon: Icon, label }) => (
+                            <a key={label} href={href} target="_blank" rel="noreferrer">
+                                <Button variant="secondary" size="icon" className="rounded-full shadow-md border border-border/50 hover:-translate-y-1 hover:shadow-lg transition-all" aria-label={label}>
+                                    <Icon size={20} />
+                                </Button>
+                            </a>
+                        ))}
                         <a href={profile.personal.resumeUrl} >
                             <Button variant="outline" size="lg" className="font-medium hover:bg-secondary border-border/50 hover:-translate-y-1 hover:shadow-md transition-all">
                                 <FileText size={18} className="mr-2" /> Download CV

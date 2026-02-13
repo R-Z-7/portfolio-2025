@@ -4,7 +4,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -58,9 +58,9 @@ export default function Navbar() {
                                 offset={-100}
                                 duration={500}
                             >
-                                <div className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-muted-foreground hover:text-foreground cursor-pointer")}>
+                                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
                                     {link.name}
-                                </div>
+                                </Button>
                             </Link>
                         ))}
 
@@ -73,9 +73,9 @@ export default function Navbar() {
                             smooth={true}
                             className="ml-2"
                         >
-                            <div className={cn(buttonVariants({ size: "sm" }), "font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer")}>
-                                Let's Talk
-                            </div>
+                            <Button size="sm" className="font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300">
+                                Let&apos;s Talk
+                            </Button>
                         </Link>
                     </div>
 
