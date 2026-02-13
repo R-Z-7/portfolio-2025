@@ -8,8 +8,8 @@ export const profile = {
         headline: "IT Support Technician / Field Support → Cloud & DevOps",
         email: "ramees.jobs.uk@gmail.com",
         phone: "+44 7799 579462",
-        githubUrl: "https://github.com", // Placeholder
-        linkedinUrl: "https://linkedin.com", // Placeholder
+        githubUrl: "https://github.com/R-Z-7",
+        linkedinUrl: "https://www.linkedin.com/in/rameezz/",
         resumeUrl: "https://drive.google.com/file/d/1y4BL0VJddRN6wf-KtYk8iis7F6Utju8W/view?usp=sharing",
     },
     summary: [

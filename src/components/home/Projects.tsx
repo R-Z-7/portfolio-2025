@@ -8,6 +8,7 @@ import { profile } from "@/data/profile";
 import { Github, ExternalLink, Filter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const categories = ["All", "Cloud", "DevOps", "Automation"];
 
@@ -29,18 +30,20 @@ export default function Projects() {
                 {/* Filter Tabs */}
                 <div className="flex flex-wrap gap-2 p-1.5 bg-muted/50 rounded-full border border-border/50 backdrop-blur-sm">
                     {categories.map(cat => (
-                        <button
+                        <Button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
+                            variant={activeCategory === cat ? "default" : "ghost"}
+                            size="sm"
                             className={cn(
-                                "px-5 py-2 rounded-full text-sm font-medium transition-all duration-300",
+                                "rounded-full transition-all duration-300",
                                 activeCategory === cat
-                                    ? "bg-background text-foreground shadow-sm"
+                                    ? "bg-background text-foreground shadow-sm hover:bg-background"
                                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                             )}
                         >
                             {cat}
-                        </button>
+                        </Button>
                     ))}
                 </div>
             </div>

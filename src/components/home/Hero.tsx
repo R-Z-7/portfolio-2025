@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import { ArrowDown, Github, Linkedin, FileText, ChevronRight } from "lucide-react";
 import { profile } from "@/data/profile";
 import Magnetic from "@/components/Magnetic";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const Hero3D = dynamic(() => import("./Hero3D"), {
     ssr: false,
@@ -62,21 +64,28 @@ export default function Hero() {
                             to="experience"
                             smooth={true}
                             offset={-100}
-                            className="btn-primary"
                         >
-                            View My Journey <ChevronRight size={18} />
+                            <div className={cn(buttonVariants({ size: "lg" }), "text-base font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all cursor-pointer")}>
+                                View My Journey <ChevronRight size={18} className="ml-2" />
+                            </div>
                         </Link>
                     </Magnetic>
 
                     <div className="flex gap-4">
-                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer" className="p-3 bg-secondary hover:bg-secondary/80 rounded-full text-foreground transition-all hover:-translate-y-1 hover:shadow-md border border-border/50">
-                            <Github size={20} />
+                        <a href={profile.personal.githubUrl} target="_blank" rel="noreferrer">
+                            <Button variant="secondary" size="icon" className="rounded-full shadow-md border border-border/50 hover:-translate-y-1 hover:shadow-lg transition-all">
+                                <Github size={20} />
+                            </Button>
                         </a>
-                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer" className="p-3 bg-secondary hover:bg-secondary/80 rounded-full text-foreground transition-all hover:-translate-y-1 hover:shadow-md border border-border/50">
-                            <Linkedin size={20} />
+                        <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer">
+                            <Button variant="secondary" size="icon" className="rounded-full shadow-md border border-border/50 hover:-translate-y-1 hover:shadow-lg transition-all">
+                                <Linkedin size={20} />
+                            </Button>
                         </a>
-                        <a href={profile.personal.resumeUrl} className="btn-secondary">
-                            <FileText size={18} /> Download CV
+                        <a href={profile.personal.resumeUrl} >
+                            <Button variant="outline" size="lg" className="font-medium hover:bg-secondary border-border/50 hover:-translate-y-1 hover:shadow-md transition-all">
+                                <FileText size={18} className="mr-2" /> Download CV
+                            </Button>
                         </a>
                     </div>
                 </motion.div>

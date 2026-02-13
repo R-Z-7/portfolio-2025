@@ -6,6 +6,7 @@ import GlassCard from "@/components/ui/GlassCard";
 import { profile } from "@/data/profile";
 import { Mail, MapPin, Send, Phone, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,12 +92,13 @@ export default function Contact() {
                                     </div>
                                     <h4 className="text-2xl font-bold text-foreground mb-2">Message Sent!</h4>
                                     <p className="text-muted-foreground">Thanks for reaching out. I'll get back to you soon.</p>
-                                    <button
+                                    <Button
+                                        variant="link"
                                         onClick={() => setIsSubmitted(false)}
-                                        className="mt-8 text-primary text-sm font-medium hover:text-foreground transition-colors"
+                                        className="mt-8 text-primary"
                                     >
                                         Send another message
-                                    </button>
+                                    </Button>
                                 </motion.div>
                             ) : (
                                 <motion.form
@@ -128,16 +130,17 @@ export default function Contact() {
                                         </div>
                                     )}
 
-                                    <button
+                                    <Button
                                         disabled={isSubmitting}
-                                        className="w-full btn-primary justify-center mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full mt-2"
+                                        size="lg"
                                     >
                                         {isSubmitting ? (
-                                            <>Sending... <Loader2 className="animate-spin" size={18} /></>
+                                            <>Sending... <Loader2 className="animate-spin ml-2" size={18} /></>
                                         ) : (
-                                            <>Send Message <Send size={18} /></>
+                                            <>Send Message <Send size={18} className="ml-2" /></>
                                         )}
-                                    </button>
+                                    </Button>
                                 </motion.form>
                             )}
                         </AnimatePresence>

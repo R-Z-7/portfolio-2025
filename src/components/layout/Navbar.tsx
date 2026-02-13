@@ -5,6 +5,8 @@ import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -55,9 +57,10 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-100}
                                 duration={500}
-                                className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-4 py-2 rounded-full cursor-pointer transition-all relative group"
                             >
-                                {link.name}
+                                <div className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-muted-foreground hover:text-foreground cursor-pointer")}>
+                                    {link.name}
+                                </div>
                             </Link>
                         ))}
 
@@ -68,18 +71,20 @@ export default function Navbar() {
                         <Link
                             to="contact"
                             smooth={true}
-                            className="ml-2 px-5 py-2 bg-primary text-primary-foreground rounded-full text-xs font-bold hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                            className="ml-2"
                         >
-                            Let's Talk
+                            <div className={cn(buttonVariants({ size: "sm" }), "font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer")}>
+                                Let's Talk
+                            </div>
                         </Link>
                     </div>
 
                     {/* Mobile Toggle */}
                     <div className="flex items-center gap-3 md:hidden pr-1">
                         <ThemeToggle />
-                        <button className="text-foreground p-1 hover:bg-muted/50 rounded-full transition-colors" onClick={() => setIsOpen(!isOpen)}>
+                        <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="hover:bg-muted/50">
                             {isOpen ? <X size={20} /> : <Menu size={20} />}
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
@@ -98,10 +103,11 @@ export default function Navbar() {
                                 smooth={true}
                                 offset={-80}
                                 onClick={() => setIsOpen(false)}
-                                className="text-base font-medium text-foreground/80 hover:text-foreground px-4 py-3 hover:bg-muted/50 rounded-xl transition-all flex items-center justify-between group"
                             >
-                                {link.name}
-                                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                <div className={cn(buttonVariants({ variant: "ghost" }), "w-full justify-between text-base px-4 py-6 hover:bg-muted/50 rounded-xl cursor-pointer")}>
+                                    {link.name}
+                                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                </div>
                             </Link>
                         ))}
                         <div className="h-px bg-border/50 my-2" />
@@ -109,9 +115,10 @@ export default function Navbar() {
                             to="contact"
                             smooth={true}
                             onClick={() => setIsOpen(false)}
-                            className="text-base font-bold text-center bg-primary text-primary-foreground py-3.5 rounded-xl shadow-lg shadow-primary/20"
                         >
-                            Contact Me
+                            <div className={cn(buttonVariants({ className: "w-full py-6 text-base font-bold shadow-lg shadow-primary/20 rounded-xl cursor-pointer" }))}>
+                                Contact Me
+                            </div>
                         </Link>
                     </motion.div>
                 )}
