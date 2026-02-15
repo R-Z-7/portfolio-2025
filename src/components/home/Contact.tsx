@@ -21,7 +21,8 @@ export default function Contact() {
         const formData = new FormData(e.currentTarget);
 
         try {
-            const response = await fetch("https://formspree.io/f/xbdobpar", {
+            const formUrl = process.env.NEXT_PUBLIC_FORMSPREE_URL || "https://formspree.io/f/xbdobpar";
+            const response = await fetch(formUrl, {
                 method: "POST",
                 body: formData,
                 headers: {
