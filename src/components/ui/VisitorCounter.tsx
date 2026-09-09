@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 
-const SESSION_KEY = 'rk_visitor_incremented';
+const SESSION_KEY = 'rk_visitor_session_recorded';
 
 export default function VisitorCounter() {
     const [count, setCount] = useState<number | null>(null);
@@ -15,28 +15,32 @@ export default function VisitorCounter() {
 
         const fetchCount = async () => {
             try {
-                // Check if already visited in this session
-                const hasVisited = sessionStorage.getItem(SESSION_KEY);
+                // Check if already counted in this browser session
+                const hasVisited = typeof window !== 'undefined' ? sessionStorage.getItem(SESSION_KEY) : null;
                 const method = hasVisited ? 'GET' : 'POST';
 
-                const response = await fetch('/api/visitors', { method });
+                const response = await fetch('/api/visitors', {
+                    method,
+                    cache: 'no-store'
+                });
 
                 if (!response.ok) {
-                    console.error('[VisitorCounter] Response not ok:', response.status, response.statusText);
-                    throw new Error('Failed to fetch count');
+                    throw new Error(`Failed to fetch count: ${response.status}`);
                 }
 
                 const data = await response.json();
 
-                setCount(data.count);
-
-                // Mark as visited in this session (only if POST was successful)
-                if (method === 'POST') {
-                    sessionStorage.setItem(SESSION_KEY, 'true');
+                if (typeof data.count === 'number') {
+                    setCount(data.count);
+                    if (method === 'POST' && typeof window !== 'undefined') {
+                        sessionStorage.setItem(SESSION_KEY, 'true');
+                    }
+                } else {
+                    setCount(1015);
                 }
             } catch (err) {
-                console.error('Visitor counter error:', err);
-                setCount(1000); // Fallback
+                console.error('[VisitorCounter] Error:', err);
+                setCount(1015);
             } finally {
                 setLoading(false);
             }
