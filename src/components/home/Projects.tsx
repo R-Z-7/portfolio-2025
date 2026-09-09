@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-const categories = ["All", "Cloud", "DevOps", "Automation"];
+const categories = ["All", "Networking", "Infrastructure", "Systems", "Cloud"];
 
 export default function Projects() {
     const [activeCategory, setActiveCategory] = useState("All");
@@ -23,7 +23,7 @@ export default function Projects() {
         <SectionWrapper id="projects" className="py-24">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div>
-                    <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Portfolio</h2>
+                    <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Technical Projects & Labs</h2>
                     <h3 className="text-3xl md:text-5xl font-bold text-foreground font-display">Featured Projects</h3>
                 </div>
 

@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' })
 
 export const metadata: Metadata = {
-    title: 'Ramees Kallan | Cloud & DevOps Portfolio',
-    description: 'IT Support Engineer transitioning to Cloud & DevOps. Portfolio of Ramees Kallan.',
+    title: 'Ramees Kallan | Network Support & Infrastructure Engineer',
+    description: 'Portfolio of Ramees Kallan - Network Support Engineer with hands-on experience in routers, switches, wireless APs, multi-site network migrations, and live cutovers. Preparing for Cisco CCNA.',
 }
 
 import CustomCursor from '@/components/CustomCursor'

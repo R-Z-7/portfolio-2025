@@ -27,10 +27,11 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="inline-block mb-4 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-md"
+                    className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md"
                 >
-                    <span className="text-secondary-foreground font-medium text-sm tracking-wide uppercase">
-                        {profile.personal.headline.split("→")[0]}
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-foreground font-semibold text-xs md:text-sm tracking-wide uppercase">
+                        Network Support & Infrastructure Engineer
                     </span>
                 </motion.div>
 
@@ -48,10 +49,21 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-muted-foreground text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+                    className="text-muted-foreground text-lg md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed font-light"
                 >
-                    Transitioning to <span className="text-primary font-semibold">Cloud & DevOps</span> by bridging the gap between Support and Infrastructure.
+                    Supporting, configuring, and deploying <span className="text-primary font-semibold">network infrastructure</span> across live multi-site client environments. Hands-on with routers, switches, wireless APs, migrations, and live cutovers. Preparing for <span className="text-foreground font-semibold">Cisco CCNA</span>.
                 </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 text-xs md:text-sm font-mono text-muted-foreground"
+                >
+                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">📍 Leeds, West Yorkshire</span>
+                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🚗 Full UK Driving Licence</span>
+                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🎯 Cisco CCNA (In Progress)</span>
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
