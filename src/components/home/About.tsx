@@ -2,7 +2,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { profile } from "@/data/profile";
-import { GraduationCap, ShieldCheck, MapPin, Car, Radio, Network } from "lucide-react";
+import { GraduationCap, ShieldCheck, Network } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 
 export default function About() {

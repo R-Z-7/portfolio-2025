@@ -4,7 +4,7 @@ import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import GlassCard from "@/components/ui/GlassCard";
 import { profile } from "@/data/profile";
-import { Mail, Send, CheckCircle, Loader2, AlertCircle, Linkedin, Car } from "lucide-react";
+import { Mail, Send, CheckCircle, Loader2, AlertCircle, Linkedin, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -78,11 +78,11 @@ export default function Contact() {
 
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center text-primary">
-                                    <Car size={20} />
+                                    <Briefcase size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold">Mobility & Deployment</p>
-                                    <p className="text-foreground text-base md:text-lg">Full UK Driving Licence & Transport • Multi-Site Ready</p>
+                                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold">Availability</p>
+                                    <p className="text-foreground text-base md:text-lg">Open to Hybrid, Onsite & Multi-Site Roles</p>
                                 </div>
                             </div>
                         </div>

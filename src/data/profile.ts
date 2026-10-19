@@ -21,7 +21,7 @@ export const profile = {
         portfolioUrl: "https://ramees.netlify.app",
         resumeUrl: "https://drive.google.com/file/d/1y4BL0VJddRN6wf-KtYk8iis7F6Utju8W/view?usp=sharing",
         additionalInfo: [
-            "Full UK Driving Licence & Transport",
+            "Second-Line & Field Infrastructure Support",
             "Available for Hybrid, Onsite & Multi-Site Roles",
             "Hardware Refresh & Multi-Site Deployments",
             "Strong focus on Cisco, Fortinet, Meraki & Juniper"

@@ -61,7 +61,7 @@ export default function Hero() {
                     className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 text-xs md:text-sm font-mono text-muted-foreground"
                 >
                     <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">⚡ Multi-Site & Hybrid Ready</span>
-                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🚗 Full UK Driving Licence</span>
+                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🛠️ Field & Deskside Support</span>
                     <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🎯 Cisco CCNA (In Progress)</span>
                 </motion.div>
 
