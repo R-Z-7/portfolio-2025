@@ -60,7 +60,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                     className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 text-xs md:text-sm font-mono text-muted-foreground"
                 >
-                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">📍 Leeds, West Yorkshire</span>
+                    <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">⚡ Multi-Site & Hybrid Ready</span>
                     <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🚗 Full UK Driving Licence</span>
                     <span className="px-3 py-1 rounded-full bg-secondary/70 border border-border">🎯 Cisco CCNA (In Progress)</span>
                 </motion.div>

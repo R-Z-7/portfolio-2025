@@ -13,19 +13,17 @@ export interface ProjectItem {
 export const profile = {
     personal: {
         name: "Ramees Kallan",
-        location: "Leeds, West Yorkshire",
         headline: "Network Support Engineer | Infrastructure & Network Support",
         subheadline: "Field & Deskside Infrastructure Support • Network Upgrades & Migrations • Cisco CCNA (In Progress)",
         email: "ramees.kallan@outlook.com",
-        phone: "+44 7799 579462",
         githubUrl: "https://github.com/R-Z-7",
         linkedinUrl: "https://www.linkedin.com/in/rameezz/",
         portfolioUrl: "https://ramees.netlify.app",
         resumeUrl: "https://drive.google.com/file/d/1y4BL0VJddRN6wf-KtYk8iis7F6Utju8W/view?usp=sharing",
         additionalInfo: [
             "Full UK Driving Licence & Transport",
-            "Based in Leeds, West Yorkshire",
             "Available for Hybrid, Onsite & Multi-Site Roles",
+            "Hardware Refresh & Multi-Site Deployments",
             "Strong focus on Cisco, Fortinet, Meraki & Juniper"
         ]
     },
@@ -98,7 +96,7 @@ export const profile = {
         {
             role: "Onsite IT Engineer / Infrastructure & Network Support Engineer",
             company: "Cerco Ltd",
-            location: "Leeds / UK Client Sites",
+            location: "UK Client Sites",
             period: "Jan 2025 – Present",
             type: "Current",
             tags: ["Network Infrastructure", "Routers & Switches", "DHCP/DNS", "ServiceNow", "Field Support"],

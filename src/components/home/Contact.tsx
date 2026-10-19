@@ -4,7 +4,7 @@ import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import GlassCard from "@/components/ui/GlassCard";
 import { profile } from "@/data/profile";
-import { Mail, MapPin, Send, Phone, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { Mail, Send, CheckCircle, Loader2, AlertCircle, Linkedin, Car } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -66,23 +66,23 @@ export default function Contact() {
                                 </div>
                             </a>
 
-                            <a href={`tel:${profile.personal.phone.replace(/\s+/g, '')}`} className="flex items-center gap-4 group">
+                            <a href={profile.personal.linkedinUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
                                 <div className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                                    <Phone size={20} />
+                                    <Linkedin size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold">Phone</p>
-                                    <p className="text-foreground text-base md:text-lg group-hover:text-primary transition-colors">{profile.personal.phone}</p>
+                                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold">LinkedIn</p>
+                                    <p className="text-foreground text-base md:text-lg group-hover:text-primary transition-colors">Connect on LinkedIn</p>
                                 </div>
                             </a>
 
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center text-primary">
-                                    <MapPin size={20} />
+                                    <Car size={20} />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold">Location & Mobility</p>
-                                    <p className="text-foreground text-base md:text-lg">{profile.personal.location} • Full UK Driving Licence</p>
+                                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold">Mobility & Deployment</p>
+                                    <p className="text-foreground text-base md:text-lg">Full UK Driving Licence & Transport • Multi-Site Ready</p>
                                 </div>
                             </div>
                         </div>
